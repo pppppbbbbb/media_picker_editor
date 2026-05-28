@@ -1,0 +1,32 @@
+name: media_picker_editor
+version: 0.1.0
+description: A reusable Flutter media picker with preview, multi-select, and lightweight image editing tools.
+repository: https://github.com/pppppbbbbb/media_picker_editor
+issue_tracker: https://github.com/pppppbbbbb/media_picker_editor/issues
+homepage: https://github.com/pppppbbbbb/media_picker_editor
+
+environment:
+  sdk: ^3.11.5
+  flutter: ">=3.35.0"
+
+dependencies:
+  flutter:
+    sdk: flutter
+  path: ^1.9.1
+  path_provider: ^2.1.5
+  photo_manager: ^3.9.0
+
+dev_dependencies:
+  flutter_test:
+    sdk: flutter
+  flutter_lints: ^6.0.0
+
+flutter:
+  uses-material-design: true
+
+topics:
+  - media-picker
+  - image-editor
+  - photo-picker
+  - flutter
+  - gallery
