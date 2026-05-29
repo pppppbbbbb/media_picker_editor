@@ -2,7 +2,7 @@
 
 A reusable Flutter media picker with selected-media preview and lightweight image editing.
 
-Current features:
+## Features
 
 - Pick images, videos, and GIFs from the local photo library.
 - Multi-select with max selection limit.
@@ -21,15 +21,7 @@ dependencies:
   media_picker_editor: ^0.1.0
 ```
 
-For local development:
-
-```yaml
-dependencies:
-  media_picker_editor:
-    path: ../media_picker_editor
-```
-
-For GitHub usage after publishing the repository:
+For GitHub usage:
 
 ```yaml
 dependencies:
@@ -37,6 +29,14 @@ dependencies:
     git:
       url: https://github.com/pppppbbbbb/media_picker_editor.git
       ref: main
+```
+
+For local development:
+
+```yaml
+dependencies:
+  media_picker_editor:
+    path: ../media_picker_editor
 ```
 
 ## Platform Setup
@@ -66,36 +66,17 @@ Add media permissions to `android/app/src/main/AndroidManifest.xml` when your ap
 
 `photo_manager` also contributes platform configuration through its plugin. Always test the permission flow on the Android versions you support, especially Android 13+.
 
-## Publish Checklist
-
-Before publishing to pub.dev:
-
-```bash
-flutter pub get
-dart format .
-flutter analyze
-flutter test
-dart pub publish --dry-run
-```
-
-Then publish:
-
-```bash
-dart pub publish
-```
-
-For GitHub-only usage, keep using the `git` dependency shown above. For pub.dev release, the package must pass `dart pub publish --dry-run` and you must be logged in with a pub.dev publisher account.
-
 ## Usage
 
 ```dart
+import 'package:flutter/material.dart';
 import 'package:media_picker_editor/media_picker_editor.dart';
 
 Future<void> pickMedia(BuildContext context) async {
   final result = await showFlutterMediaPicker(
     context,
     config: const FlutterMediaPickerConfig(
-      title: '所有照片',
+      title: 'All Photos',
       multiSelect: true,
       maxSelection: 9,
       allowedTypes: {
@@ -139,15 +120,25 @@ if (edited != null) {
 
 - Video is preview-only; video editing is intentionally not included yet.
 - GIF is preview/select-only; GIF editing is intentionally not included yet.
-- The built-in editor is lightweight and UI-opinionated. For production open-source release, consider adding theme/localization hooks.
+- The built-in editor is lightweight and UI-opinionated. Consider adding theme/localization hooks for production apps.
 - Edited images are stored in the temporary directory. The host app should upload/copy them if long-term retention is needed.
 
-## Development
+## Publish Checklist
+
+Before publishing to pub.dev:
 
 ```bash
 flutter pub get
+dart format .
 flutter analyze
 flutter test
+dart pub publish --dry-run
+```
+
+Then publish:
+
+```bash
+dart pub publish
 ```
 
 ## License
